@@ -1,16 +1,52 @@
-html,
-body {
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+  --h1-font-size: 4.209rem;
+  --h2-font-size: 3.157rem;
+  --h3-font-size: 2.369rem;
+  --h4-font-size: 1.777rem;
+  --h5-font-size: 1.333rem;
+
+  --large-font-size: 1.8rem;
+  --normal-font-size: 1.6rem;
+  --small-font-size: 1.4rem;
+  --smaller-font-size: 1.3rem;
+
+  --navbar-height: 6rem;
+
+  --primary-color: #002e5b;
+  --secondary-color: #ff6900;
+  --title-color: #0f0f0f;
+  --bg-color: #fff;
+  --bg2-color: #ddd;
+}
+
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--normal-font-size);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.3;
+}
+
+ul,li {
+  list-style: none;
 }
 
 a {
-  color: inherit;
+  color: unset;
+  display: inline-block;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }

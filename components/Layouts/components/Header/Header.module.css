@@ -1,0 +1,131 @@
+.wrapper {
+  position: relative;
+  background-color: var(--bg-color);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  position: relative;
+  width: 200px;
+  height: 80px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.info-icon {
+  line-height: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  font-size: 2rem;
+}
+.info-desc {
+  font-size: var(--small-font-size);
+}
+
+.info-desc .info-title {
+  font-size: var(--normal-font-size);
+  text-transform: capitalize;
+}
+
+.navbar{
+  background-color: var(--primary-color);
+  height: var(--navbar-height);
+  position: sticky;
+  top: 0;
+}
+
+.navbar.sticky {
+  
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-logo {
+  position: relative;
+  width: 130px;
+  height: var(--navbar-height);
+  visibility: hidden;
+}
+
+.navbar.sticky .navbar-logo {
+  visibility: visible;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 3rem;
+}
+.menu-link {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  line-height: var(--navbar-height);
+  transition: .3s ease-in-out;
+  position: relative;
+}
+.menu-link::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 4px;
+  background-color: var(--secondary-color);
+  transition: .3s ease-in-out;
+  top: 0;
+  left: 50%;
+  right: 50%;
+}
+.menu-link:hover::before {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+.menu-link.active::before {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.navbar-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  visibility: hidden;
+}
+
+.navbar.sticky .navbar-socials {
+  visibility: visible;
+}
+
+.navbar-socials__link {
+  color: #fff;
+  transition: .3s ease-in-out;
+}
+.navbar-socials__link:hover {
+  color: var(--secondary-color)
+}
