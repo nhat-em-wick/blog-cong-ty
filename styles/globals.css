@@ -17,8 +17,11 @@
   --primary-color: #002e5b;
   --secondary-color: #ff6900;
   --title-color: #0f0f0f;
+  --text-color-light: #a1a1a1;
+  --text-color: #000;
   --bg-color: #fff;
   --bg2-color: #ddd;
+  --color-border: #dadada;
 }
 
 *,

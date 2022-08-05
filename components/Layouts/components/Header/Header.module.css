@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   background-color: var(--bg-color);
+  display: none;
 }
 
 .top {
@@ -51,6 +52,7 @@
   height: var(--navbar-height);
   position: sticky;
   top: 0;
+  display: none;
 }
 
 .navbar.sticky {
@@ -128,4 +130,65 @@
 }
 .navbar-socials__link:hover {
   color: var(--secondary-color)
+}
+
+.mobile {
+  background-color: var(--primary-color);
+  height: var(--navbar-height);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+}
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-logo {
+  height: var(--navbar-height);
+  position: relative;
+  width: 150px;
+}
+.button--toggle {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  line-height: 0;
+  font-size: 2rem;
+}
+.navbar-collapse {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 0;
+  overflow: hidden;
+}
+.navbar-collapse.expanded {
+  height: max-content;
+}
+.navbar-list {
+  display: flex;
+  flex-direction: column;
+}
+.navbar-item {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.navbar-link {
+  width: 100%;
+  padding: .8rem;
+}
+
+@media screen and (min-width: 992px) {
+  .wrapper, .navbar {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  } 
 }
