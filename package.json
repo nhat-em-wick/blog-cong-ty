@@ -9,10 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "formik": "^2.2.9",
+    "framer-motion": "^7.0.0",
     "next": "12.2.2",
+    "query-string": "^7.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0"
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-icons": "^4.4.0",
+    "swiper": "^8.3.2",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.19.0",

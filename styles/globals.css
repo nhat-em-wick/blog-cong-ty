@@ -16,11 +16,12 @@
 
   --primary-color: #002e5b;
   --secondary-color: #ff6900;
+  --danger-color:#DC3545;
   --title-color: #0f0f0f;
   --text-color-light: #a1a1a1;
   --text-color: #000;
   --bg-color: #fff;
-  --bg2-color: #ddd;
+  --bg2-color: #f1f1f1;
   --color-border: #dadada;
 }
 

@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.heading {
+  font-size: 10rem;
+  color: var(--secondary-color);
+}
+.desc {
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,28 @@
+.wrapper {
+  padding: 5rem 0;
+}
+
+.info {
+
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+.info-icon {
+  font-size: 4rem;
+}
+
+.form-list {
+  margin-top: 2rem;
+}
+.form-list > *~* {
+  margin-top: 2rem;
+}
+.map {
+  margin-top: 3.5rem;
+}

@@ -1,0 +1,29 @@
+.wrapper {
+  height: 200px;
+  z-index: 1;
+  position: relative;
+}
+.wrapper::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--title-color);
+  font-size: var(--h1-font-size);
+  text-transform: capitalize;
+  width: 90%;
+  text-align: center;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}

@@ -2,6 +2,7 @@
   position: relative;
   background-color: var(--bg-color);
   display: none;
+  
 }
 
 .top {
@@ -53,6 +54,7 @@
   position: sticky;
   top: 0;
   display: none;
+  z-index: 100;
 }
 
 .navbar.sticky {
@@ -76,11 +78,13 @@
 }
 
 .menu {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   gap: 3rem;
+
 }
 .menu-link {
   text-transform: uppercase;
@@ -138,6 +142,7 @@
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   position: relative;
+  z-index: 100;
 }
 .mobile-header {
   display: flex;

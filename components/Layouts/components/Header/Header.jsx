@@ -6,6 +6,7 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import Link from "next/link";
 import { FaFacebookF, FaYoutube, FaBars, FaTimes } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const menu = [
   {
@@ -13,15 +14,15 @@ const menu = [
     display: "trang chủ",
   },
   {
-    path: "/",
+    path: "/about",
     display: "giới thiệu",
   },
   {
-    path: "/",
+    path: "/blog",
     display: "blog",
   },
   {
-    path: "/",
+    path: "/contact",
     display: "liên hệ",
   },
 ];
@@ -30,6 +31,7 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [expanded, setExpanded] = useState(false)
   const menuRef = useRef();
+  const router = useRouter();
 
   useEffect(() => {
     const handleSticky = () => {
@@ -86,7 +88,7 @@ const Header = () => {
               {menu.map((item, index) => (
                 <li key={index} className={styles["menu-item"]}>
                   <Link href={item.path}>
-                    <a className={styles["menu-link"]}>{item.display}</a>
+                    <a className={`${styles["menu-link"]} ${router.pathname === item.path ? styles['active'] : ''}`}>{item.display}</a>
                   </Link>
                 </li>
               ))}

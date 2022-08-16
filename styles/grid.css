@@ -24,7 +24,6 @@
 .col {
   padding-left: 4px;
   padding-right: 4px;
-  padding-bottom: 8px;
 }
 
 .row.no-gutters .col {
@@ -150,7 +149,7 @@
   .col {
       padding-left: 8px;
       padding-right: 8px;
-      padding-bottom: 16px;
+     
   }
 
   .m-0 {
@@ -292,7 +291,7 @@
   .col {
       padding-left: 12px;
       padding-right: 12px;
-      padding-bottom: 24px;
+     
   }
 
   .row.sm-gutter .col {
@@ -456,7 +455,6 @@
   .wide .col {
       padding-left: 12px;
       padding-right: 12px;
-      padding-bottom: 24px;
   }
 
   .wide .row.sm-gutter .col {

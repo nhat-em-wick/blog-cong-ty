@@ -1,0 +1,29 @@
+.wrapper {
+  overflow: hidden;
+}
+
+.image {
+  padding-top: 70%;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.content {
+  margin-top: 1.5rem;
+}
+.title {
+  text-transform: capitalize;
+  font-size: var(--h4-font-size);
+  transition: .3s ease-in-out;
+}
+.title:hover {
+  color: var(--secondary-color);
+}
+.title a {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  cursor: pointer;
+}

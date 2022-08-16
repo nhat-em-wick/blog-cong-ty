@@ -1,3 +1,35 @@
 .heading {
   text-transform: capitalize;
+  position: relative;
+  padding-bottom: .5rem;
+  width: max-content;
+  font-size: var(--h2-font-size);
+}
+
+.heading::before {
+  position: absolute;
+  content: '';
+  width:100%;
+  height: 1px;
+  background-color: var(--color-border);
+  bottom: 0;
+  left: 0;
+}
+.heading::after {
+  position: absolute;
+  content: '';
+  width: 7rem;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: -1px;
+}
+.heading.left::after {
+  left: 0;
+}
+.heading.center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.heading.right::after {
+  right: 0;
 }
