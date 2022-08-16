@@ -45,6 +45,10 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleSticky);
   }, []);
 
+  useEffect(() => {
+    setExpanded(false)
+  }, [router.pathname])
+
   return (
     <>
       <header className={styles["wrapper"]}>
@@ -94,13 +98,13 @@ const Header = () => {
               ))}
             </ul>
             <div className={styles["navbar-socials"]}>
-              <Link href="/">
-                <a href="" className={styles["navbar-socials__link"]}>
+              <Link href="https://www.facebook.com/VietTinConstruction">
+                <a target={'_blank'} className={styles["navbar-socials__link"]}>
                   <FaFacebookF />
                 </a>
               </Link>
-              <Link href="/">
-                <a href="" className={styles["navbar-socials__link"]}>
+              <Link href="https://www.youtube.com/channel/UCJ6e21nceIZfAH0f2LGb3kQ">
+                <a target={'_blank'} className={styles["navbar-socials__link"]}>
                   <FaYoutube />
                 </a>
               </Link>
@@ -126,7 +130,7 @@ const Header = () => {
             {menu.map((item, index) => (
                 <li key={index} className={styles["navbar-item"]}>
                   <Link href={item.path}>
-                    <a className={styles["navbar-link"]}>{item.display}</a>
+                    <a className={`${styles["navbar-link"]} ${router.pathname === item.path ? styles['active'] : ''}`}>{item.display}</a>
                   </Link>
                 </li>
               ))}

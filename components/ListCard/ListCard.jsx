@@ -50,6 +50,23 @@ const ListCardSlider = ({ list, cardType, classNames }) => {
           swiper.params.navigation.prevEl = navigationPrevRef.current;
           swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
+        breakpoints={
+          {
+            0 : {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 3,
+            },
+            1023: {
+              slidesPerView: 4,
+            },
+          }
+        }
       >
         {list
           .map((item) => (
@@ -95,7 +112,7 @@ const ListCardGrid = ({ list, cardType, classNames, grid }) => {
         return "col l-3 m-3 c-12";
         break;
       default:
-        return "col l-3 m-3 c-12";
+        return "col l-3 m-4 c-12";
         break;
     }
   }, [grid]);

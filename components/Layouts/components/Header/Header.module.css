@@ -188,6 +188,9 @@
   width: 100%;
   padding: .8rem;
 }
+.navbar-link.active {
+  color: var(--secondary-color);
+}
 
 @media screen and (min-width: 992px) {
   .wrapper, .navbar {

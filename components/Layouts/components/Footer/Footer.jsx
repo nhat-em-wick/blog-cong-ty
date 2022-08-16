@@ -47,13 +47,13 @@ const Footer = () => {
                 at aperiam, reiciendis delectus veniam earum consectetur
               </p>
               <div className={styles["socials"]}>
-                <Link href="/">
-                  <a className={`${styles["socials-item"]} ${styles["fb"]}`}>
+                <Link href="https://www.facebook.com/VietTinConstruction">
+                  <a target={'_blank'} className={`${styles["socials-item"]} ${styles["fb"]}`}>
                     <FaFacebookF />
                   </a>
                 </Link>
-                <Link href="/">
-                  <a className={`${styles["socials-item"]} ${styles["yt"]}`}>
+                <Link href="https://www.youtube.com/channel/UCJ6e21nceIZfAH0f2LGb3kQ">
+                  <a target={'_blank'} className={`${styles["socials-item"]} ${styles["yt"]}`}>
                     <IoLogoYoutube />
                   </a>
                 </Link>
