@@ -4,11 +4,26 @@ import Button from '../../../Button'
 import styles from './CardType2.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
 
 
 const CardType2 = ({item}) => {
 
+  const [contentState, setContentState] = useState(() => {
+    if (item) {
+      return EditorState.createWithContent(
+        convertFromRaw(JSON.parse(item.content))
+      );
+    } else {
+      return EditorState.createEmpty();
+    }
+  });
+
+  const handleRemoveTag = () => {
+    const html = draftToHtml(convertToRaw(contentState.getCurrentContent()))
+    return html.replace(/<(.|\n)*?>/g, '')
+  }
 
   return (
     <div className={styles['wrapper']}>
@@ -21,7 +36,11 @@ const CardType2 = ({item}) => {
             {item.title}
           </Link>
         </h3>
-      
+        <p className={styles['description']}>
+          {
+            handleRemoveTag()
+          }
+        </p>
         <Link href={`/blog/${item.slug}`}>
           <a className={styles['link']}>Đọc thêm</a>
         </Link>

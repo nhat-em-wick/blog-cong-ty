@@ -51,6 +51,7 @@ const Sidebar = () => {
           onChange={(e) => handleSearch(e)}
           type="text"
           className={styles["search-input"]}
+          placeholder="Tìm kiếm bài viết"
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
               handleNavigate()

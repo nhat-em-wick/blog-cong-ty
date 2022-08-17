@@ -42,9 +42,7 @@ const Footer = () => {
                 <Image src={logo} layout="fill" alt=""></Image>
               </div>
               <p className={styles["desc"]}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Labore, doloribus autem! Culpa placeat mollitia voluptatem quos
-                at aperiam, reiciendis delectus veniam earum consectetur
+              Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.
               </p>
               <div className={styles["socials"]}>
                 <Link href="https://www.facebook.com/VietTinConstruction">

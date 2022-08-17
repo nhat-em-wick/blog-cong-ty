@@ -20,14 +20,31 @@ import categoryApi from '../api/categoryApi'
 
 import {v4 as uuidv4} from 'uuid'
 
-const Home = ({ features, models, exp }) => {
+const Home = ({ features, models, exp, domain }) => {
   const router = useRouter();
+  const [modelsList, setModelsList] = useState([])
+
+  useEffect(() => {
+    setModelsList(models)
+  }, [models])
+  
  
   return (
     <>
     <Head>
       <title>Xây dựng Việt Tín</title>
       <meta name="description" content='Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.'/>
+       {/*<!-- Google / Search Engine Tags -->*/}
+       <meta itemProp="name" content={'Xây dựng Việt Tín'} />
+        <meta itemProp="description" content={'Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.'} />
+        <meta itemProp="image" content={ "https://xaydungviettin.vn/wp-content/uploads/2021/04/BANG-HIEU-CONG-TY-1536x947.jpg"} />
+
+        {/*<!-- Facebook Meta Tags -->*/}
+        <meta property="og:url" content={`https://${domain}`} />
+        <meta property="og:title" content={'Xây dựng Việt Tín'} />
+        <meta property="og:description" content={'Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.'} />
+        <meta property="og:image" content={ "https://xaydungviettin.vn/wp-content/uploads/2021/04/BANG-HIEU-CONG-TY-1536x947.jpg"} />
+        <meta property="og:type" content="website" />
     </Head>
       <section className={styles["slider"]}>
         <Slider />
@@ -88,7 +105,7 @@ const Home = ({ features, models, exp }) => {
       <section className={styles["services"]}>
         <div className="grid wide">
           <Title title="mẫu nhà" />
-          <ListCardSlider list={models} classNames={styles["services-slider"]} />
+          <ListCardSlider list={modelsList}/>
         </div>
       </section>
       <section className={styles["projects-new"]}>
@@ -241,7 +258,7 @@ const FeatureCard = ({ item }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({req}) {
   try {
     const [cateFeature, cateModels, cateExp] = await Promise.all(
      [ categoryApi.getBySlug('du-an'),
@@ -259,7 +276,8 @@ export async function getServerSideProps() {
       props: {
         features: postsFeature.elements.posts,
         models: postsModels.elements.posts,
-        exp : postsExp.elements.posts
+        exp : postsExp.elements.posts,
+        domain: req.headers.host
         // features: [],
         // services: [],
         // exp : []

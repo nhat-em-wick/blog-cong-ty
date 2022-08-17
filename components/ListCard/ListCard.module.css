@@ -2,11 +2,17 @@
   position: relative;
 }
 
+.wrapper-slider {
+  position: relative;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .slider-control {
   display: flex;
   gap: 1rem;
   position: absolute;
-  top: -3rem;
+  top: -4rem;
   right: 0;
   z-index: 1;
 }

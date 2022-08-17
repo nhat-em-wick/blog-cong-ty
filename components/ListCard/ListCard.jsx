@@ -9,7 +9,7 @@ import CardType1 from "./components/CardType1";
 import CardType2 from "./components/CardType2";
 import { v4 as uuidv4 } from "uuid";
 
-const ListCardSlider = ({ list, cardType, classNames }) => {
+const ListCardSlider = ({ list, cardType, classNames, lg, md, sm }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const checkCardType = (item) => {
@@ -22,7 +22,7 @@ const ListCardSlider = ({ list, cardType, classNames }) => {
   };
 
   return (
-    <div className={`${styles["wrapper"]} ${classNames}`}>
+    <div className={`${styles["wrapper-slider"]} ${classNames}`}>
       <div className={styles["slider-control"]}>
         <button
           ref={navigationPrevRef}
@@ -39,7 +39,6 @@ const ListCardSlider = ({ list, cardType, classNames }) => {
       </div>
       <Swiper
         spaceBetween={30}
-        slidesPerView={4}
         modules={[Navigation]}
         loop={true}
         navigation={{
@@ -50,28 +49,25 @@ const ListCardSlider = ({ list, cardType, classNames }) => {
           swiper.params.navigation.prevEl = navigationPrevRef.current;
           swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
-        breakpoints={
-          {
-            0 : {
-              slidesPerView: 1,
-            },
-            640: {
-              slidesPerView: 2,
-            },
-            // when window width is >= 768px
-            768: {
-              slidesPerView: 3,
-            },
-            1023: {
-              slidesPerView: 4,
-            },
-          }
-        }
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          640: {
+            slidesPerView: sm,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: md,
+          },
+          1023: {
+            slidesPerView: lg,
+          },
+        }}
       >
-        {list
-          .map((item) => (
-            <SwiperSlide key={uuidv4()}>{checkCardType(item)}</SwiperSlide>
-          ))}
+        {list.map((item, index) => (
+          <SwiperSlide key={uuidv4()}>{checkCardType(item)}</SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
@@ -81,10 +77,16 @@ ListCardSlider.propTypes = {
   list: PropTypes.array.isRequired,
   cardType: PropTypes.string,
   classNames: PropTypes.string,
+  lg: PropTypes.number,
+  md: PropTypes.number,
+  sm: PropTypes.number,
 };
 ListCardSlider.defaultProps = {
   cardType: "v1",
   classNames: "",
+  lg: 4,
+  md: 3,
+  sm: 2,
 };
 
 const ListCardGrid = ({ list, cardType, classNames, grid }) => {
@@ -120,12 +122,11 @@ const ListCardGrid = ({ list, cardType, classNames, grid }) => {
   return (
     <div className={`${styles["wrapper"]} ${classNames}`}>
       <div className="row">
-        {list
-          .map((item) => (
-            <div key={uuidv4()} className={showGrid}>
-              {checkCardType(item)}
-            </div>
-          ))}
+        {list.map((item) => (
+          <div key={uuidv4()} className={showGrid}>
+            {checkCardType(item)}
+          </div>
+        ))}
       </div>
     </div>
   );

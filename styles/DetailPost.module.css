@@ -2,3 +2,36 @@
   font-size: var(--h2-font-size);
   margin-bottom: 1rem;
 }
+
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+
+}
+
+.related-heading {
+  font-size: var(--h3-font-size);
+  margin-bottom: .5rem;
+
+}
+
+.related-list {
+  padding-left: 2rem;
+}
+
+.related-link {
+  padding: .5rem 0;
+  transition: .3s ease-in-out;
+}
+
+.related-link:hover {
+  color: var(--primary-color);
+}
+
+.related-slider {
+  padding-top: 2.5rem;
+
+}
