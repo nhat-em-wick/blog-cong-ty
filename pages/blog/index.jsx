@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 
 const Blog = ({ posts, pagination, domain }) => {
-  
   const router = useRouter();
   const { handleSetHeading } = useContext(HeadingContext);
 
@@ -22,20 +21,22 @@ const Blog = ({ posts, pagination, domain }) => {
 
   useEffect(() => {
     handleSetHeading("Blog");
-    console.log(posts)
   }, []);
 
   return (
     <>
-    <Head>
-      <title>Blog - Xây dựng Việt Tín</title>
-      <meta name="description" content='Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín'/>
-      {/*<!-- Google / Search Engine Tags -->*/}
-      <meta itemProp="name" content={"Blog - Xây dựng Việt Tín"} />
+      <Head>
+        <title>Blog - Xây dựng Việt Tín</title>
+        <meta
+          name="description"
+          content="Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín"
+        />
+        {/*<!-- Google / Search Engine Tags -->*/}
+        <meta itemProp="name" content={"Blog - Xây dựng Việt Tín"} />
         <meta
           itemProp="description"
           content={
-            'Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín'
+            "Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín"
           }
         />
         <meta
@@ -46,12 +47,12 @@ const Blog = ({ posts, pagination, domain }) => {
         />
 
         {/*<!-- Facebook Meta Tags -->*/}
-        <meta property="og:url" content={`https://${domain}${router.asPath}`} />
+        <meta property="og:url" content={`${domain}${router.asPath}`} />
         <meta property="og:title" content={"Blog - Xây dựng Việt Tín"} />
         <meta
           property="og:description"
           content={
-            'Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín'
+            "Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín"
           }
         />
         <meta
@@ -61,7 +62,7 @@ const Blog = ({ posts, pagination, domain }) => {
           }
         />
         <meta property="og:type" content="website" />
-    </Head>
+      </Head>
       <section>
         <ListCardGrid list={posts} cardType={"v2"} grid={3} />
       </section>
@@ -77,17 +78,17 @@ const Blog = ({ posts, pagination, domain }) => {
   );
 };
 
-export async function getServerSideProps({ query, req }) {
+export async function getServerSideProps({ query }) {
   try {
     const res = await postApi.getPosts({
-      page: query.page || 1,
-      limit: query.limit || 9,
+      page: query?.page || 1,
+      limit: query?.limit || 9,
     });
     return {
       props: {
         posts: res.elements.posts,
         pagination: res.elements.pagination,
-        domain: req.headers.host
+        domain: process.env.DOMAIN,
       },
     };
   } catch (error) {

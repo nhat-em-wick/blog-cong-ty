@@ -14,7 +14,7 @@ import Link from "next/link";
 import { ListCardSlider } from "../../components/ListCard";
 import Title from "../../components/Title";
 
-const DetailPost = ({ post, url, relatedPosts }) => {
+const DetailPost = ({ post, domain, relatedPosts }) => {
   const router = useRouter();
 
   const { handleSetHeading } = useContext(HeadingContext);
@@ -56,7 +56,7 @@ const DetailPost = ({ post, url, relatedPosts }) => {
 
         {/*<!-- Facebook Meta Tags -->*/}
 
-        <meta property="og:url" content={`https://${url}${router.asPath}`} />
+        <meta property="og:url" content={`${domain}${router.asPath}`} />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
@@ -74,33 +74,25 @@ const DetailPost = ({ post, url, relatedPosts }) => {
         ></div>
         <div className={styles["share"]}>
           <span className={styles["share-text"]}>Chia sẽ:</span>
-          <FacebookShareButton url={`https://${url}${router.asPath}`}>
+          <FacebookShareButton url={`https://${domain}${router.asPath}`}>
             <FacebookIcon size={35} round />
           </FacebookShareButton>
         </div>
       </section>
       <section className={styles["related"]}>
-        {/* <ul className={styles["related-list"]}>
-          {relatedPosts.map((item) => (
-            <li key={uuidv4()} className={styles["related-item"]}>
-              <Link href={`/blog/${item.slug}`} passHref>
-                <a className={styles["related-link"]}>{item.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul> */}
-        <Title title="cùng chuyên mục" />
-        <ListCardSlider list={related} lg={3} />
+        {related && related.length > 0 && (
+          <>
+            <Title title="cùng chuyên mục" />
+            <ListCardSlider list={related} lg={3} />
+          </>
+        )}
       </section>
     </>
   );
 };
 
-export async function getServerSideProps({ params, req }) {
+export async function getServerSideProps({ params }) {
   const { postSlug } = params;
-
-  const url = req.headers.host;
-
   try {
     const post = await postApi.getPost(postSlug);
     const relatedPosts = await postApi.getPosts({
@@ -111,7 +103,7 @@ export async function getServerSideProps({ params, req }) {
     return {
       props: {
         post: post.element,
-        url: url,
+        domain: process.env.DOMAIN,
         relatedPosts: relatedPosts.elements.posts,
       },
     };

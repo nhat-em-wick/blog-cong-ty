@@ -40,7 +40,7 @@ const Home = ({ features, models, exp, domain }) => {
         <meta itemProp="image" content={ "https://xaydungviettin.vn/wp-content/uploads/2021/04/BANG-HIEU-CONG-TY-1536x947.jpg"} />
 
         {/*<!-- Facebook Meta Tags -->*/}
-        <meta property="og:url" content={`https://${domain}`} />
+        <meta property="og:url" content={`${domain}`} />
         <meta property="og:title" content={'Xây dựng Việt Tín'} />
         <meta property="og:description" content={'Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.'} />
         <meta property="og:image" content={ "https://xaydungviettin.vn/wp-content/uploads/2021/04/BANG-HIEU-CONG-TY-1536x947.jpg"} />
@@ -258,7 +258,7 @@ const FeatureCard = ({ item }) => {
   );
 };
 
-export async function getServerSideProps({req}) {
+export async function getStaticProps({req}) {
   try {
     const [cateFeature, cateModels, cateExp] = await Promise.all(
      [ categoryApi.getBySlug('du-an'),
@@ -270,17 +270,13 @@ export async function getServerSideProps({req}) {
       postApi.getPosts({limit: 6, category: cateModels.element._id}),
       postApi.getPosts({limit: 6, category: cateExp.element._id})]
     )
-      
    
     return {
       props: {
         features: postsFeature.elements.posts,
         models: postsModels.elements.posts,
         exp : postsExp.elements.posts,
-        domain: req.headers.host
-        // features: [],
-        // services: [],
-        // exp : []
+        domain: process.env.DOMAIN
       },
     };
   } catch (error) {

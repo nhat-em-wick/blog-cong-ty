@@ -10,14 +10,15 @@ import styles from '../../styles/Category.module.css'
 import Head from "next/head";
 
 const Category = ({posts, pagination, category, domain}) => {
-
+  console.log(category)
   const router = useRouter();
   const { handleSetHeading } = useContext(HeadingContext);
 
   const handlePageChange = (page) => {
+    console.log(router)
     router.push({
-      pathname: router.pathname,
-      query: { page: page, limit: router.query.limit || 6 },
+      pathname: `/${category.slug}`,
+      query: { page: page, limit: router.query.limit || 9 },
     });
   };
 
@@ -46,7 +47,7 @@ const Category = ({posts, pagination, category, domain}) => {
         />
 
         {/*<!-- Facebook Meta Tags -->*/}
-        <meta property="og:url" content={`https://${domain}${router.asPath}`} />
+        <meta property="og:url" content={`${domain}${router.asPath}`} />
         <meta property="og:title" content={`${category.name} - Xây dựng Việt Tín`} />
         <meta
           property="og:description"
@@ -66,7 +67,7 @@ const Category = ({posts, pagination, category, domain}) => {
         <ListCardGrid list={posts} cardType={"v2"} grid={3} />
       </section>
       <div>
-        {posts.length > 0 && pagination && (
+      {posts.length > 0 && pagination && (
           <Pagination
             pagination={pagination}
             onPageChange={(newPage) => handlePageChange(newPage)}
@@ -77,12 +78,15 @@ const Category = ({posts, pagination, category, domain}) => {
   )
 }
 
-export async function getServerSideProps({ query, params, req }) {
+
+
+export async function getServerSideProps({ query, params }) {
+  const {categorySlug} = params
   try {
-    const category = await categoryApi.getBySlug(params.categorySlug)
+    const category = await categoryApi.getBySlug(categorySlug)
     const resPost = await postApi.getPosts({
-      page: query.page || 1,
-      limit: query.limit || 6,
+      page: query?.page || 1,
+      limit: query?.limit || 9,
       category: category.element._id
     });
    
@@ -91,16 +95,13 @@ export async function getServerSideProps({ query, params, req }) {
         posts: resPost.elements.posts,
         pagination: resPost.elements.pagination,
         category: category.element,
-        domain: req.headers.host
+        domain: process.env.DOMAIN
       },
     };
   } catch (error) {
     console.error(error);
     return {
-      props: {
-        posts: [],
-        pagination: null,
-      },
+      notFound: true,
     };
   }
 }

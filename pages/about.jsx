@@ -41,7 +41,7 @@ const About = ({ page, domain }) => {
         />
 
         {/*<!-- Facebook Meta Tags -->*/}
-        <meta property="og:url" content={`https://${domain}`} />
+        <meta property="og:url" content={`${domain}`} />
         <meta property="og:title" content={"Giới thiệu - Xây dựng Việt Tín"} />
         <meta
           property="og:description"
@@ -67,13 +67,13 @@ const About = ({ page, domain }) => {
   );
 };
 
-export async function getServerSideProps({ req }) {
+export async function getStaticProps({ req }) {
   try {
     const res = await pageApi.getPage("gioi-thieu");
     return {
       props: {
         page: res.element,
-        domain: req.headers.host,
+        domain: process.env.DOMAIN
       },
     };
   } catch (error) {
