@@ -23,14 +23,17 @@ const Search = ({ posts, pagination }) => {
 
   return (
     <>
-    <Head>
-      <title>Tìm kiếm - Xây dựng Việt Tín</title>
-      <meta name="description" content='Xây dựng Việt Tín'/>
-    </Head>
+      <Head>
+        <title>Tìm kiếm - Xây dựng Việt Tín</title>
+        <meta name="description" content="Xây dựng Việt Tín" />
+        <link rel="shortcut icon" href="/public/favicon.ico" />
+      </Head>
       <section>
-        <div style={{
-          marginBottom: '2rem'
-        }}>
+        <div
+          style={{
+            marginBottom: "2rem",
+          }}
+        >
           <h3
             style={{
               fontSize: "var(--h3-font-size)",

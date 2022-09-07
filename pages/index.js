@@ -34,6 +34,7 @@ const Home = ({ features, models, exp, domain }) => {
     <Head>
       <title>Xây dựng Việt Tín</title>
       <meta name="description" content='Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.'/>
+      <link rel="shortcut icon" href="/public/favicon.ico" />
        {/*<!-- Google / Search Engine Tags -->*/}
        <meta itemProp="name" content={'Xây dựng Việt Tín'} />
         <meta itemProp="description" content={'Chuyên thiết kế, thi công xây dựng nhà phố, biệt thự cao cấp, chung cư cao tầng, các công trình nhà ở cấp 4, biệt thự vườn, các hạng mục phụ khác.'} />

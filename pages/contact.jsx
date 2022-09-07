@@ -51,6 +51,7 @@ const Contact = () => {
           name="description"
           content="Mọi thắc mắc xin liên hệ qua qua email: viettinconstructions@gmail.com."
         />
+      <link rel="shortcut icon" href="/public/favicon.ico" />
       </Head>
       <PageHeader />
       <div className={styles["wrapper"]}>

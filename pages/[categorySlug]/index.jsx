@@ -31,6 +31,8 @@ const Category = ({posts, pagination, category, domain}) => {
     <Head>
     <title>{category.name} - Xây dựng Việt Tín</title>
       <meta name="description" content='Nơi lưu trữ các bài viết về các dự án và công trình xây dựng của Việt Tín'/>
+      <link rel="shortcut icon" href="/public/favicon.ico" />
+
       {/*<!-- Google / Search Engine Tags -->*/}
       <meta itemProp="name" content={`${category.name} - Xây dựng Việt Tín`} />
         <meta

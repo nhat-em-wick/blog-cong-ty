@@ -25,6 +25,8 @@ const About = ({ page, domain }) => {
           name="description"
           content="Đội ngũ Kiến Trúc Sư và Kỹ Sư với mong muốn mang lại những “giá trị không gian sống đích thực”, cho bất cứ gia chủ nào trên mảnh đất Việt Nam với vẻ đẹp, hiện đại, đầy sáng tạo, tính hợp lý cho căn nhà của mình nên đã thành lập Công Ty Cổ Phần Tư Vấn Thiết Kế Xây Dựng Việt Tín, để phục vụ quý khách hàng. Từ đó Việt Tín ra đời."
         />
+      <link rel="shortcut icon" href="/public/favicon.ico" />
+
         {/*<!-- Google / Search Engine Tags -->*/}
         <meta itemProp="name" content={"Giới thiệu - Xây dựng Việt Tín"} />
         <meta

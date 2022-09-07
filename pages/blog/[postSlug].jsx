@@ -48,6 +48,7 @@ const DetailPost = ({ post, domain, relatedPosts }) => {
         <title>{post?.title} - Xây dựng Việt Tín</title>
 
         <meta name="description" content={handleRemoveTag()} />
+        <link rel="shortcut icon" href="/public/favicon.ico" />
 
         {/*<!-- Google / Search Engine Tags -->*/}
         <meta itemProp="name" content={post.title} />
